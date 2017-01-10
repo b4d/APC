@@ -11,51 +11,51 @@ ipRackPDU2 = "192.168.65.247"
 ipRackPDU3 = "192.168.65.248"
 
 
-mibFile = "/homes/stuff/powernet410.mib"
+mibFile = "powernet410.mib"
 
 coolPower = 30
 coolPowerSingle = 15
 
 
 
-groupCoolOutput =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCGroupStatusCoolOutput.0"))/10
+groupCoolOutput =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCGroupStatusCoolOutput.0"))/10
 #print progressBar((groupCoolOutput*100)/coolPower)
-inRow1CoolOutput =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusCoolOutput.0"))/10
+inRow1CoolOutput =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusCoolOutput.0"))/10
 #print progressBar((inRow1CoolOutput*100)/coolPowerSingle)
-inRow2CoolOutput =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusCoolOutput.0"))/10
+inRow2CoolOutput =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusCoolOutput.0"))/10
 #print progressBar((inRow2CoolOutput*100)/coolPowerSingle)
-maxRackInletTemp =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCGroupStatusMaxRackInletTempMetric.0"))/10
-minRackInletTemp =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCGroupStatusMinRackInletTempMetric.0"))/10
+maxRackInletTemp =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCGroupStatusMaxRackInletTempMetric.0"))/10
+minRackInletTemp =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCGroupStatusMinRackInletTempMetric.0"))/10
 
-hotAir2 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusReturnAirTempMetric.0"))/10
-hotAir1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusReturnAirTempMetric.0"))/10
+hotAir2 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusReturnAirTempMetric.0"))/10
+hotAir1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusReturnAirTempMetric.0"))/10
 
-tempRack1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipRackPDU1+" PowerNet-MIB::rPDU2SensorTempHumidityStatusTempC.1"))/10
-tempRack2 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusSupplyAirTempMetric.0"))/10
-tempRack3 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusSupplyAirTempMetric.0"))/10
+tempRack1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipRackPDU1+" PowerNet-MIB::rPDU2SensorTempHumidityStatusTempC.1"))/10
+tempRack2 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusSupplyAirTempMetric.0"))/10
+tempRack3 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusSupplyAirTempMetric.0"))/10
 
-powerRack1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipRackPDU1+" PowerNet-MIB::rPDU2DeviceStatusPower.1"))/100
-powerRack2 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipRackPDU2+" PowerNet-MIB::rPDU2DeviceStatusPower.1"))/100
-powerRack3 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipRackPDU3+" PowerNet-MIB::rPDU2DeviceStatusPower.1"))/100
+powerRack1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipRackPDU1+" PowerNet-MIB::rPDU2DeviceStatusPower.1"))/100
+powerRack2 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipRackPDU2+" PowerNet-MIB::rPDU2DeviceStatusPower.1"))/100
+powerRack3 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipRackPDU3+" PowerNet-MIB::rPDU2DeviceStatusPower.1"))/100
 
-humidityPDU1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipRackPDU1+" PowerNet-MIB::rPDU2SensorTempHumidityStatusRelativeHumidity.1"))
+humidityPDU1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipRackPDU1+" PowerNet-MIB::rPDU2SensorTempHumidityStatusRelativeHumidity.1"))
 
 
 #//
-airFlow2 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusAirFlowMetric.0"))/10
-airFlow1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusAirFlowMetric.0"))/10
+airFlow2 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusAirFlowMetric.0"))/10
+airFlow1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusAirFlowMetric.0"))/10
 
-fanSpeed2 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusFanSpeed.0"))/10
-fanSpeed1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusFanSpeed.0"))/10
+fanSpeed2 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusFanSpeed.0"))/10
+fanSpeed1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusFanSpeed.0"))/10
 
-fluidFlow2 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusFluidFlowMetric.0"))/10
-fluidFlow1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusFluidFlowMetric.0"))/10
+fluidFlow2 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusFluidFlowMetric.0"))/10
+fluidFlow1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusFluidFlowMetric.0"))/10
 
-fluidTempEnt2 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusEnteringFluidTemperatureMetric.0"))/10
-fluidTempEnt1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusEnteringFluidTemperatureMetric.0"))/10
+fluidTempEnt2 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusEnteringFluidTemperatureMetric.0"))/10
+fluidTempEnt1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusEnteringFluidTemperatureMetric.0"))/10
 
-fluidTempLea2 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusLeavingFluidTemperatureMetric.0"))/10
-fluidTempLea1 =  float(commands.getoutput("snmpwalk -v1 -c public -m '"+mibFile+"' -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusLeavingFluidTemperatureMetric.0"))/10
+fluidTempLea2 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow2+" PowerNet-MIB::airIRRCUnitStatusLeavingFluidTemperatureMetric.0"))/10
+fluidTempLea1 =  float(commands.getoutput("snmpwalk -v1 -c public -Ovq "+ipInRow1+" PowerNet-MIB::airIRRCUnitStatusLeavingFluidTemperatureMetric.0"))/10
 
 
 

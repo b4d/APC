@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from numpy import *
-from pylab import *
+import matplotlib
 import matplotlib.dates as md
+matplotlib.use('Agg')
+from pylab import *
+from numpy import *
 
 
 # VARIABLES
@@ -32,8 +34,8 @@ ax1.spines['top'].set_color(colorAxesTicks)
 ax1.spines['right'].set_color(colorAxesTicks)
 ax1.spines['left'].set_color(colorAxesTicks)
 
-ax1.tick_params(axis='x', colors=colorAxesTicks)
-ax1.tick_params(axis='y', colors=colorAxesTicks)
+#ax1.tick_params(axis='x', colors=colorAxesTicks)
+#ax1.tick_params(axis='y', colors=colorAxesTicks)
 
 title('Temperature', fontweight='bold')
 #xlabel('Time')
@@ -60,8 +62,8 @@ ax2.spines['top'].set_color(colorAxesTicks)
 ax2.spines['right'].set_color(colorAxesTicks)
 ax2.spines['left'].set_color(colorAxesTicks)
 
-ax2.tick_params(axis='x', colors=colorAxesTicks)
-ax2.tick_params(axis='y', colors=colorAxesTicks)
+#ax2.tick_params(axis='x', colors=colorAxesTicks)
+#ax2.tick_params(axis='y', colors=colorAxesTicks)
 
 
 
@@ -86,8 +88,8 @@ ax3.spines['top'].set_color(colorAxesTicks)
 ax3.spines['right'].set_color(colorAxesTicks)
 ax3.spines['left'].set_color(colorAxesTicks)
 
-ax3.tick_params(axis='x', colors=colorAxesTicks)
-ax3.tick_params(axis='y', colors=colorAxesTicks)
+#ax3.tick_params(axis='x', colors=colorAxesTicks)
+#ax3.tick_params(axis='y', colors=colorAxesTicks)
 
 
 
@@ -105,6 +107,7 @@ ax.xaxis.set_major_formatter(xfmt)
 subplots_adjust(hspace=1)
 
 
-savefig('podatki.png')
 
-show()
+#savefig('/var/www/html/misc/podatki.png')
+savefig('podatki.png')
+#show()
